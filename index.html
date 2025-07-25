@@ -23,7 +23,6 @@
             --pie-color-1: #D4AF37;
             --pie-color-2: #AF9B46;
             --pie-color-3: #8C7C35;
-            /* NOVA VARIÁVEL: Quantidade de execuções da estrela cadente */
             --shooting-star-count: 1;
         }
         
@@ -43,130 +42,25 @@
         @keyframes fly-up { 0%{transform:translateY(0);opacity:0} 10%,90%{opacity:1} 100%{transform:translateY(-120vh);opacity:0} }
         .particle:nth-child(1){width:2px;height:2px;left:10%;animation-duration:9s;animation-delay:-1s}.particle:nth-child(2){width:1px;height:1px;left:20%;animation-duration:12s;animation-delay:-4s}.particle:nth-child(3){width:3px;height:3px;left:30%;animation-duration:7s;animation-delay:-3s}.particle:nth-child(4){width:1px;height:1px;left:40%;animation-duration:15s;animation-delay:-7s}.particle:nth-child(5){width:2px;height:2px;left:50%;animation-duration:8s;animation-delay:-2s}.particle:nth-child(6){width:1px;height:1px;left:60%;animation-duration:11s;animation-delay:-5s}.particle:nth-child(7){width:3px;height:3px;left:70%;animation-duration:9s;animation-delay:-6s}.particle:nth-child(8){width:1px;height:1px;left:80%;animation-duration:13s;animation-delay:-1s}.particle:nth-child(9){width:2px;height:2px;left:90%;animation-duration:10s;animation-delay:-8s}.particle:nth-child(10){width:3px;height:3px;left:5%;animation-duration:14s;animation-delay:-10s}
         
-        /* ===== METEOROS CORRIGIDOS - CAINDO VERTICALMENTE ===== */
         .meteors-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
         .meteor { position: absolute; width: 3px; height: 3px; background: var(--accent-color); border-radius: 50%; opacity: 0; }
-        .meteor::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            width: 2px;
-            height: 30px;
-            background: linear-gradient(180deg, transparent, var(--accent-color));
-            transform: translateX(-50%);
-            opacity: 0.8;
-        }
-        .meteor::after {
-            content: '';
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.4));
-            transform: translateX(-50%);
-            opacity: 0.5;
-        }
+        .meteor::before { content: ''; position: absolute; top: -30px; left: 50%; width: 2px; height: 30px; background: linear-gradient(180deg, transparent, var(--accent-color)); transform: translateX(-50%); opacity: 0.8; }
+        .meteor::after { content: ''; position: absolute; top: -60px; left: 50%; width: 1px; height: 60px; background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.4)); transform: translateX(-50%); opacity: 0.5; }
         
-        @keyframes meteor-fall {
-            0% {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(calc(100vh + 100px));
-                opacity: 0;
-            }
-        }
-        
-        .meteor:nth-child(1) { left: 10%; animation: meteor-fall 2s linear infinite; animation-delay: 0s; }
-        .meteor:nth-child(2) { left: 20%; animation: meteor-fall 3s linear infinite; animation-delay: -1s; }
-        .meteor:nth-child(3) { left: 30%; animation: meteor-fall 2.5s linear infinite; animation-delay: -0.5s; }
-        .meteor:nth-child(4) { left: 40%; animation: meteor-fall 3.5s linear infinite; animation-delay: -2s; }
-        .meteor:nth-child(5) { left: 50%; animation: meteor-fall 2.2s linear infinite; animation-delay: -0.3s; }
-        .meteor:nth-child(6) { left: 60%; animation: meteor-fall 3.2s linear infinite; animation-delay: -1.5s; }
-        .meteor:nth-child(7) { left: 70%; animation: meteor-fall 2.8s linear infinite; animation-delay: -0.8s; }
-        .meteor:nth-child(8) { left: 80%; animation: meteor-fall 3.8s linear infinite; animation-delay: -1.2s; }
-        
-        /* ===== INÍCIO DA CORREÇÃO: ESTRELA CADENTE ESPECIAL PARA O ÚLTIMO SLIDE ===== */
-        .shooting-star {
-            position: absolute;
-            top: -50px;
-            right: 75px;
-            width: 4px; /* A cabeça do meteoro */
-            height: 4px; /* A cabeça do meteoro */
-            background: var(--accent-color);
-            border-radius: 50%;
-            opacity: 0;
-            z-index: 5;
-            /* A rotação foi movida para a animação para não ser sobrescrita */
-        }
-        
-        /* Cauda principal - um rastro linear que se estende para trás */
-        .shooting-star::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            /* Começa na borda traseira da cabeça do meteoro */
-            right: 1px; 
-            transform: translateY(-50%);
-            width: 150px;
-            height: 2px;
-            /* O gradiente cria o efeito de desvanecimento */
-            background: linear-gradient(to left, var(--accent-color), transparent);
-            border-radius: 2px;
-        }
+        @keyframes meteor-fall { 0% { transform: translateY(-100px); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(calc(100vh + 100px)); opacity: 0; } }
+        .meteor:nth-child(1) { left: 10%; animation: meteor-fall 2s linear infinite; animation-delay: 0s; } .meteor:nth-child(2) { left: 20%; animation: meteor-fall 3s linear infinite; animation-delay: -1s; } .meteor:nth-child(3) { left: 30%; animation: meteor-fall 2.5s linear infinite; animation-delay: -0.5s; } .meteor:nth-child(4) { left: 40%; animation: meteor-fall 3.5s linear infinite; animation-delay: -2s; } .meteor:nth-child(5) { left: 50%; animation: meteor-fall 2.2s linear infinite; animation-delay: -0.3s; } .meteor:nth-child(6) { left: 60%; animation: meteor-fall 3.2s linear infinite; animation-delay: -1.5s; } .meteor:nth-child(7) { left: 70%; animation: meteor-fall 2.8s linear infinite; animation-delay: -0.8s; } .meteor:nth-child(8) { left: 80%; animation: meteor-fall 3.8s linear infinite; animation-delay: -1.2s; }
 
-        /* Cauda secundária - um rastro mais longo e tênue */
-        .shooting-star::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 1px;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 1px;
-            background: linear-gradient(to left, rgba(212, 175, 55, 0.4), transparent);
-            border-radius: 1px;
-        }
+        .shooting-star { position: absolute; top: -50px; right: 75px; width: 4px; height: 4px; background: var(--accent-color); border-radius: 50%; opacity: 0; z-index: 5; }
+        .shooting-star::before { content: ''; position: absolute; top: 50%; right: 1px; transform: translateY(-50%); width: 150px; height: 2px; background: linear-gradient(to left, var(--accent-color), transparent); border-radius: 2px; }
+        .shooting-star::after { content: ''; position: absolute; top: 50%; right: 1px; transform: translateY(-50%); width: 300px; height: 1px; background: linear-gradient(to left, rgba(212, 175, 55, 0.4), transparent); border-radius: 1px; }
         
-        /* Animação corrigida: combina o movimento (translate) com a rotação (rotate) */
-        @keyframes shooting-star-fly {
-            0% {
-                /* O meteoro se move e rotaciona ao mesmo tempo */
-                transform: translateX(0) translateY(0) rotate(135deg);
-                opacity: 0;
-            }
-            5% {
-                opacity: 1;
-            }
-            95% {
-                opacity: 1;
-            }
-            100% {
-                /* Mantém a rotação durante todo o percurso */
-                transform: translateX(calc(-100vw - 400px)) translateY(calc(100vh + 100px)) rotate(135deg);
-                opacity: 0;
-            }
-        }
-        /* ===== FIM DA CORREÇÃO ===== */
-
-        .slide.final-slide.active .shooting-star {
-            animation: shooting-star-fly 1.5s ease-in 0.5s;
-            animation-iteration-count: var(--shooting-star-count);
-        }
+        @keyframes shooting-star-fly { 0% { transform: translateX(0) translateY(0) rotate(135deg); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateX(calc(-100vw - 400px)) translateY(calc(100vh + 100px)) rotate(135deg); opacity: 0; } }
+        .slide.final-slide.active .shooting-star { animation: shooting-star-fly 1.5s ease-in 0.5s; animation-iteration-count: var(--shooting-star-count); }
         
         .grid-overlay { position: fixed; top: -50px; left: -50px; right: -50px; bottom: -50px; z-index: 2; background-image: linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(to right, var(--border-color) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; transition: transform 0.1s linear; }
         .spotlight { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 3; background: radial-gradient(circle, transparent 120px, rgba(18, 16, 14, 0.85) 280px); }
 
-        /* ===== ESTRUTURA DO SLIDER ===== */
+        /* ===== ESTRUTURA E LAYOUTS ===== */
         .presentation-container { position: relative; z-index: 4; width: 100vw; height: 100vh; overflow: hidden; }
         .slider-track { display: flex; height: 100%; transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1); }
         .slide { flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 2rem; }
@@ -174,10 +68,10 @@
 
         .slide-bg-number {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 18rem;
+            /* Tipografia Fluida para o número de fundo */
+            font-size: clamp(8rem, 25vw, 18rem);
             font-weight: 800;
             color: rgba(255, 255, 255, 0.03);
             z-index: -1;
@@ -185,84 +79,36 @@
             user-select: none;
         }
 
-        /* ===== LAYOUTS SEM CARDS ===== */
-        .data-card-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 1.5fr; 
-            gap: 2rem; 
-            align-items: center; 
-            padding: 3rem; 
-        }
-
-        /* Layout simples para slides centralizados */
-        .simple-card-layout {
-            padding: 3rem; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+        .data-card-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: center; padding: 3rem; }
+        .simple-card-layout { padding: 3rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         
-        .data-card-layout .slide-left { 
-            position: relative; 
-            text-align: right; 
-            border-right: 2px solid var(--border-color); 
-            padding-right: 2rem; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-end; 
-            justify-content: center; 
-            height: 100%; 
-        }
-        .data-card-layout .slide-left .slide-bg-number {
-            left: auto;
-            right: 2rem;
-            transform: translate(0, -50%);
-        }
+        .data-card-layout .slide-left { position: relative; text-align: right; border-right: 2px solid var(--border-color); padding-right: 2rem; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; height: 100%; }
+        .data-card-layout .slide-left .slide-bg-number { left: auto; right: 2rem; transform: translate(0, -50%); }
         
-        .slide-title { font-size: 2.8rem; font-weight: 800; line-height: 1.2; }
+        /* Tipografia Fluida para o título principal */
+        .slide-title { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; }
         .slide-icon { font-size: 4rem; color: var(--accent-color); margin-bottom: 1.5rem; transition: transform 0.3s ease, text-shadow 0.3s ease; z-index: 1; }
         .data-card-layout:hover .slide-icon, .simple-card-layout:hover .slide-icon { transform: scale(1.1); text-shadow: 0 0 15px var(--accent-color); }
         .slide-right { text-align: left; }
         .slide-right h3 { color: var(--text-color); font-size: 1.2rem; margin-bottom: 1rem; margin-top: 1.5rem; }
         
-        /* ===== GRÁFICO DE PIZZA ===== */
-        .pie-chart-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .pie-chart {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            position: relative;
-            background: conic-gradient(
-                var(--pie-color-1) 0% 68.01%, 
-                var(--pie-color-2) 68.01% 82.97%,
-                var(--pie-color-3) 82.97% 100%
-            );
-            mask: radial-gradient(transparent 55%, black 56%);
-            animation: draw-pie 1.5s ease-out forwards;
-        }
-        @keyframes draw-pie {
-            from { --p: 0deg; }
-            to { --p: 360deg; }
-        }
-        .pie-chart {
-            mask: radial-gradient(transparent 55%, #000 56%), conic-gradient(transparent var(--p), #000 0);
-        }
+        /* ===== COMPONENTES ===== */
+        .pie-chart-container { display: flex; justify-content: center; align-items: center; }
+        .pie-chart { width: 250px; height: 250px; border-radius: 50%; position: relative; background: conic-gradient( var(--pie-color-1) 0% 68.01%, var(--pie-color-2) 68.01% 82.97%, var(--pie-color-3) 82.97% 100% ); mask: radial-gradient(transparent 55%, black 56%); animation: draw-pie 1.5s ease-out forwards; }
+        @keyframes draw-pie { from { --p: 0deg; } to { --p: 360deg; } }
+        .pie-chart { mask: radial-gradient(transparent 55%, #000 56%), conic-gradient(transparent var(--p), #000 0); }
 
         .chart-legend { list-style: none; padding: 0; }
         .chart-legend li { display: flex; align-items: center; margin-bottom: 1rem; }
-        .legend-key { width: 15px; height: 15px; border-radius: 3px; margin-right: 15px; }
+        .legend-key { width: 15px; height: 15px; border-radius: 3px; margin-right: 15px; flex-shrink: 0; }
         .legend-text { color: var(--text-muted-color); font-size: 1rem; }
         .legend-text strong { color: var(--text-color); margin-left: auto; padding-left: 20px; font-size: 1.1rem; }
         
-        .stats-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; width: 100%; }
         .stat-card { background: var(--card-bg-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); }
         .stat-label { font-size: 1rem; color: var(--text-muted-color); margin-bottom: 0.5rem; }
         .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-color); line-height: 1; }
+        
         .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left; }
         .performance-list .performance-item { margin-bottom: 1.2rem; }
         .performance-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 1rem; }
@@ -270,45 +116,93 @@
         .performance-label span:last-child { color: var(--text-color); font-weight: 700; }
         .progress-bar-bg { background: rgba(255,255,255,0.1); border-radius: 5px; height: 8px; overflow: hidden; }
         .progress-bar-fg { background: var(--accent-color); height: 100%; width: 0; border-radius: 5px; transition: width 1.5s ease-out; }
+        
         .calculation-flow { margin: 2rem 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
         .calculation-step { display: flex; align-items: center; gap: 1rem; }
         .calc-number { background: var(--card-bg-color); padding: 0.8rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 1.5rem; font-weight: 700; }
         .calc-operator { font-size: 2rem; color: var(--accent-color); }
         .calc-result { border-top: 2px solid var(--accent-color); padding-top: 1rem; }
-        .roi-display { font-size: 6rem; font-weight: 800; color: var(--accent-color); text-shadow: 0 0 25px var(--accent-glow); margin: 1rem 0; }
+        
+        /* Tipografia Fluida para o ROI */
+        .roi-display { font-size: clamp(4rem, 12vw, 6rem); font-weight: 800; color: var(--accent-color); text-shadow: 0 0 25px var(--accent-glow); margin: 1rem 0; }
         .roi-label { font-size: 1.2rem; color: var(--text-muted-color); }
         .conclusion-text { max-width: 800px; margin: 1rem auto; text-align: left; font-size: 1.1rem; line-height: 1.7; color: var(--text-muted-color); }
         .conclusion-text strong { color: var(--accent-color); }
         .footer-credit { margin-top: 3rem; font-size: 1rem; color: var(--text-muted-color); }
+
+        /* ===== ANIMAÇÕES E NAVEGAÇÃO ===== */
         .animated-item { opacity: 0; transition: all 0.5s ease-out; transform: translateY(20px); }
         .slide.active .animated-item { opacity: 1; transform: translateY(0); }
         .slide.active .item-2 { transition-delay: 0.1s; } .slide.active .item-3 { transition-delay: 0.2s; } .slide.active .item-4 { transition-delay: 0.3s; } .slide.active .item-5 { transition-delay: 0.4s; } .slide.active .item-6 { transition-delay: 0.5s; }
+        
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: none; z-index: 10; transition: all 0.3s ease; }
         .nav-btn:hover { background-color: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 25px var(--accent-glow); }
         .nav-btn.prev { left: 2rem; } .nav-btn.next { right: 2rem; }
         .nav-btn.hidden { opacity: 0; pointer-events: none; }
+        
         .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 100; background-color: var(--border-color); }
         .progress-bar { width: 0; height: 100%; background-color: var(--accent-color); box-shadow: 0 0 10px var(--accent-glow); transition: width 0.6s cubic-bezier(0.76, 0, 0.24, 1); }
+        
         .custom-cursor { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 2px solid var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-width 0.2s; z-index: 9999; }
         .custom-cursor.hover { width: 50px; height: 50px; border-width: 3px; }
         .custom-cursor.click { transform: translate(-50%, -50%) scale(0.8); }
         .cursor-trail { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9998; transition: opacity 0.3s; }
+        
         .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s ease; }
         .loading-screen.hidden { opacity: 0; visibility: hidden; }
         .loader { width: 50px; height: 50px; border: 5px solid var(--border-color); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== INÍCIO DAS REGRAS DE RESPONSIVIDADE ===== */
+
+        /* Para Tablets e Celulares Maiores (até 900px) */
         @media (max-width: 900px) {
-            .slide-title { font-size: 2rem; }
-            .data-card-layout { grid-template-columns: 1fr; }
+            .slide { padding: 1.5rem; }
+            .data-card-layout { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
             .data-card-layout .slide-left { text-align: center; border-right: none; border-bottom: 2px solid var(--border-color); padding: 0 0 2rem 0; align-items: center; }
             .data-card-layout .slide-right { text-align: center; }
-            .simple-card-layout { }
-            .stats-container { grid-template-columns: 1fr; }
+            
             .performance-grid { grid-template-columns: 1fr; }
-            .roi-display { font-size: 4rem; }
-            .custom-cursor, .cursor-trail, .spotlight, .meteors-bg { display: none; }
+            
+            .pie-chart { width: 200px; height: 200px; }
+
+            .nav-btn.prev { left: 1rem; } 
+            .nav-btn.next { right: 1rem; }
+
+            /* Ocultar efeitos que não funcionam ou prejudicam a performance em mobile */
+            .custom-cursor, .cursor-trail, .spotlight { display: none; }
             html, body { cursor: auto; }
-            .meteor { display: none; }
+        }
+
+        /* Para Celulares (até 600px) */
+        @media (max-width: 600px) {
+            .slide { padding: 1rem; }
+            .simple-card-layout, .data-card-layout { padding: 1rem; }
+            
+            .slide-icon { font-size: 3rem; }
+
+            /* Ajustar tamanho e posição dos botões de navegação */
+            .nav-btn { width: 40px; height: 40px; font-size: 1rem; }
+            .nav-btn.prev { left: 0.5rem; } 
+            .nav-btn.next { right: 0.5rem; }
+
+            .stat-label { font-size: 0.9rem; }
+            .stat-number { font-size: 2rem; }
+
+            /* Reorganizar o fluxo de cálculo para ser vertical */
+            .calculation-step { flex-direction: column; gap: 0.5rem; }
+            .calc-number { font-size: 1.2rem; padding: 0.5rem 1rem; }
+            .calc-operator { display: none; } /* Oculta o operador pois o layout vertical já implica a operação */
+            .calculation-flow .calc-result .calc-operator { display: inline; margin-right: 1rem; } /* Mostra o '=' no resultado */
+
+            /* Ajustar legenda do gráfico para melhor leitura */
+            .chart-legend li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .legend-text strong { margin-left: 0; padding-left: 0; }
+            
+            .conclusion-text { font-size: 1rem; line-height: 1.6; }
+            
+            /* Ocultar meteoros de fundo em telas muito pequenas para focar no conteúdo */
+            .meteors-bg { display: none; }
         }
     </style>
 </head>
@@ -324,7 +218,6 @@
         <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
     </div>
     
-    <!-- NOVO: Meteoros espaciais -->
     <div class="meteors-bg">
         <div class="meteor"></div>
         <div class="meteor"></div>
@@ -349,7 +242,7 @@
                 <div class="slide-content">
                     <div class="simple-card-layout">
                         <span class="slide-bg-number">01</span>
-                        <h1 class="slide-title animated-item" id="typewriter-title" data-text="Resumo Executivo"></h1>
+                        <h1 class="slide-title animated-item" id="typewriter-title" data-text="Resumo De Junho"></h1>
                         <div class="stats-container">
                             <div class="stat-card animated-item item-2"><div class="stat-label">Total de Agendamentos</div><div class="stat-number" data-target="253" data-format="integer">0</div></div>
                             <div class="stat-card animated-item item-3"><div class="stat-label">Receita Efetiva Gerada</div><div class="stat-number" data-target="16721.50" data-format="currency">R$ 0,00</div></div>
@@ -434,14 +327,14 @@
                 <div class="slide-content">
                     <div class="simple-card-layout">
                         <span class="slide-bg-number">05</span>
-                        <h2 class="slide-title animated-item">Análise Financeira Detalhada</h2>
+                        <h2 class="slide-title animated-item">Análise Financeira</h2>
                         <div class="calculation-flow">
                             <div class="calculation-step animated-item item-2"><div class="calc-number">R$ 23.728,50</div> <span>(Total Bruto Agendado)</span></div>
                             <div class="calculation-step animated-item item-3"><div class="calc-operator">-</div> <div class="calc-number">R$ 4.716,00</div> <span>(Cancelados)</span></div>
                             <div class="calculation-step animated-item item-4"><div class="calc-operator">-</div> <div class="calc-number">R$ 2.291,00</div> <span>(Não Compareceu)</span></div>
                             <div class="calculation-step calc-result animated-item item-5"><div class="calc-operator">=</div> <div class="calc-number" style="border-color: var(--accent-color);">R$ 16.721,50</div> <span>(Receita Efetiva)</span></div>
                         </div>
-                         <p class="animated-item item-6" style="margin-top: 1.5rem; color: var(--text-muted-color);">Receita Gerada Fora do Expediente: <strong style="color: var(--accent-color);">R$ 7.226,20</strong>*<br><small>*Receita que teria sido perdida sem o atendimento automatizado 24/7.</small></p>
+                         <p class="animated-item item-6" style="margin-top: 1.5rem; color: var(--text-muted-color);">Receita Fora do Expediente: <strong style="color: var(--accent-color);">R$ 7.226,20</strong>*<br><small>*Receita que poderia ter sido perdida sem o atendimento 24/7.</small></p>
                     </div>
                 </div>
             </section>
@@ -455,7 +348,7 @@
                         <h2 class="slide-title animated-item item-2">Retorno Sobre Investimento</h2>
                         <div class="roi-display animated-item item-3" data-target="847.73" data-format="percent">0%</div>
                         <div class="roi-label animated-item item-4">Retorno Excepcional</div>
-                        <p class="animated-item item-5" style="color: var(--text-muted-color); margin-top: 1rem;">(Receita Líquida <strong style="color:var(--text-color)">R$ 14.957,12</strong> / Custo Total <strong style="color:var(--text-color)">R$ 1.764,38</strong>) * 100</p>
+                        <p class="animated-item item-5" style="color: var(--text-muted-color); margin-top: 1rem; max-width: 90%;">(Receita Líquida <strong style="color:var(--text-color)">R$ 14.957,12</strong> / Custo Total <strong style="color:var(--text-color)">R$ 1.764,38</strong>) * 100</p>
                     </div>
                 </div>
             </section>
@@ -554,33 +447,33 @@
             const trailPoints = Array.from({ length: trails.length }, () => ({ x: 0, y: 0 }));
             let mouseX = 0, mouseY = 0;
 
-            window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-            
-            function renderMouseEffects() {
-                cursor.style.transform = `translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)`;
-                spotlight.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, transparent 120px, rgba(18, 16, 14, 0.85) 280px)`;
-                const parallaxX = (mouseX / window.innerWidth - 0.5) * -50;
-                const parallaxY = (mouseY / window.innerHeight - 0.5) * -50;
-                gridOverlay.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
-                let lastX = mouseX; let lastY = mouseY;
-                for (let i = 0; i < trailPoints.length; i++) {
-                    const currentPoint = trailPoints[i];
-                    const newX = lastX; const newY = lastY;
-                    trails[i].style.transform = `translate(${currentPoint.x - trails[i].offsetWidth/2}px, ${currentPoint.y - trails[i].offsetHeight/2}px)`;
-                    trails[i].style.opacity = (1 - (i + 1) / trailPoints.length) * 0.7;
-                    trailPoints[i] = { x: currentPoint.x + (newX - currentPoint.x) * 0.3, y: currentPoint.y + (newY - currentPoint.y) * 0.3 };
-                    lastX = currentPoint.x; lastY = newY;
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+                function renderMouseEffects() {
+                    cursor.style.transform = `translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)`;
+                    spotlight.style.background = `radial-gradient(circle at ${mouseX}px ${mouseY}px, transparent 120px, rgba(18, 16, 14, 0.85) 280px)`;
+                    const parallaxX = (mouseX / window.innerWidth - 0.5) * -50;
+                    const parallaxY = (mouseY / window.innerHeight - 0.5) * -50;
+                    gridOverlay.style.transform = `translate(${parallaxX}px, ${parallaxY}px)`;
+                    let lastX = mouseX; let lastY = mouseY;
+                    for (let i = 0; i < trailPoints.length; i++) {
+                        const currentPoint = trailPoints[i];
+                        const newX = lastX; const newY = lastY;
+                        trails[i].style.transform = `translate(${currentPoint.x - trails[i].offsetWidth/2}px, ${currentPoint.y - trails[i].offsetHeight/2}px)`;
+                        trails[i].style.opacity = (1 - (i + 1) / trailPoints.length) * 0.7;
+                        trailPoints[i] = { x: currentPoint.x + (newX - currentPoint.x) * 0.3, y: currentPoint.y + (newY - currentPoint.y) * 0.3 };
+                        lastX = currentPoint.x; lastY = newY;
+                    }
+                    requestAnimationFrame(renderMouseEffects);
                 }
-                requestAnimationFrame(renderMouseEffects);
+                renderMouseEffects();
+                 document.querySelectorAll('button, a, .dot').forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+                });
+                document.addEventListener('mousedown', () => cursor.classList.add('click'));
+                document.addEventListener('mouseup', () => cursor.classList.remove('click'));
             }
-            renderMouseEffects();
-
-             document.querySelectorAll('button, a, .dot').forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            });
-            document.addEventListener('mousedown', () => cursor.classList.add('click'));
-            document.addEventListener('mouseup', () => cursor.classList.remove('click'));
 
             function initTypewriter() {
                 const el = document.getElementById('typewriter-title');
@@ -598,17 +491,20 @@
                 progressBar.style.width = `${progress}%`;
             }
 
-            document.querySelectorAll('.data-card-layout, .simple-card-layout').forEach(card => {
-                // Efeitos hover removidos para layout limpo
-            });
-            
             function animateStat(counter) {
-                if (counter.dataset.animated) return;
+                if (counter.dataset.animated === 'true' && !slides[currentIndex].classList.contains('active')) return;
+                if(counter.dataset.animated === 'true' && slides[currentIndex].classList.contains('active')) return;
+                
                 counter.dataset.animated = 'true';
                 const target = +counter.getAttribute('data-target'); const format = counter.getAttribute('data-format');
                 if (isNaN(target)) return;
                 let startTimestamp = null; const duration = 1500;
+                
                 const step = (timestamp) => {
+                    if (!slides[currentIndex].contains(counter)) {
+                        counter.dataset.animated = 'false';
+                        return;
+                    }
                     if (!startTimestamp) startTimestamp = timestamp;
                     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                     const currentValue = progress * target;
@@ -619,6 +515,16 @@
                 };
                 window.requestAnimationFrame(step);
             }
+            slides.forEach(slide => {
+                new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.attributeName === 'class' && !slide.classList.contains('active')) {
+                             slide.querySelectorAll('.stat-number, .roi-display').forEach(c => c.dataset.animated = 'false');
+                        }
+                    });
+                }).observe(slide, { attributes: true });
+            });
+
 
             if (slides.length > 0) { updateNav(); updateProgressBar(); }
              window.addEventListener('resize', () => {
