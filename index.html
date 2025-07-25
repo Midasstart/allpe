@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Performance e ROI - Pérola IA</title>
+    <title>Relatório de Performance e Proposta - Pérola IA</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,18 +66,7 @@
         .slide { flex: 0 0 100%; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; padding: 2rem; }
         .slide-content { width: 100%; max-width: 1100px; text-align: center; position: relative; }
 
-        .slide-bg-number {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            /* Tipografia Fluida para o número de fundo */
-            font-size: clamp(8rem, 25vw, 18rem);
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.03);
-            z-index: -1;
-            line-height: 1;
-            user-select: none;
-        }
+        .slide-bg-number { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: clamp(8rem, 25vw, 18rem); font-weight: 800; color: rgba(255, 255, 255, 0.03); z-index: -1; line-height: 1; user-select: none; }
 
         .data-card-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: center; padding: 3rem; }
         .simple-card-layout { padding: 3rem; display: flex; flex-direction: column; justify-content: center; align-items: center; }
@@ -85,7 +74,6 @@
         .data-card-layout .slide-left { position: relative; text-align: right; border-right: 2px solid var(--border-color); padding-right: 2rem; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; height: 100%; }
         .data-card-layout .slide-left .slide-bg-number { left: auto; right: 2rem; transform: translate(0, -50%); }
         
-        /* Tipografia Fluida para o título principal */
         .slide-title { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.2; }
         .slide-icon { font-size: 4rem; color: var(--accent-color); margin-bottom: 1.5rem; transition: transform 0.3s ease, text-shadow 0.3s ease; z-index: 1; }
         .data-card-layout:hover .slide-icon, .simple-card-layout:hover .slide-icon { transform: scale(1.1); text-shadow: 0 0 15px var(--accent-color); }
@@ -98,111 +86,52 @@
         @keyframes draw-pie { from { --p: 0deg; } to { --p: 360deg; } }
         .pie-chart { mask: radial-gradient(transparent 55%, #000 56%), conic-gradient(transparent var(--p), #000 0); }
 
-        .chart-legend { list-style: none; padding: 0; }
-        .chart-legend li { display: flex; align-items: center; margin-bottom: 1rem; }
-        .legend-key { width: 15px; height: 15px; border-radius: 3px; margin-right: 15px; flex-shrink: 0; }
-        .legend-text { color: var(--text-muted-color); font-size: 1rem; }
-        .legend-text strong { color: var(--text-color); margin-left: auto; padding-left: 20px; font-size: 1.1rem; }
+        .chart-legend { list-style: none; padding: 0; } .chart-legend li { display: flex; align-items: center; margin-bottom: 1rem; } .legend-key { width: 15px; height: 15px; border-radius: 3px; margin-right: 15px; flex-shrink: 0; } .legend-text { color: var(--text-muted-color); font-size: 1rem; } .legend-text strong { color: var(--text-color); margin-left: auto; padding-left: 20px; font-size: 1.1rem; }
         
         .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; width: 100%; }
-        .stat-card { background: var(--card-bg-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); }
-        .stat-label { font-size: 1rem; color: var(--text-muted-color); margin-bottom: 0.5rem; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-color); line-height: 1; }
+        .stat-card { background: var(--card-bg-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); } .stat-label { font-size: 1rem; color: var(--text-muted-color); margin-bottom: 0.5rem; } .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent-color); line-height: 1; }
         
-        .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left; }
-        .performance-list .performance-item { margin-bottom: 1.2rem; }
-        .performance-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 1rem; }
-        .performance-label span:first-child { color: var(--text-muted-color); }
-        .performance-label span:last-child { color: var(--text-color); font-weight: 700; }
-        .progress-bar-bg { background: rgba(255,255,255,0.1); border-radius: 5px; height: 8px; overflow: hidden; }
-        .progress-bar-fg { background: var(--accent-color); height: 100%; width: 0; border-radius: 5px; transition: width 1.5s ease-out; }
+        .performance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left; } .performance-list .performance-item { margin-bottom: 1.2rem; } .performance-label { display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-size: 1rem; } .performance-label span:first-child { color: var(--text-muted-color); } .performance-label span:last-child { color: var(--text-color); font-weight: 700; } .progress-bar-bg { background: rgba(255,255,255,0.1); border-radius: 5px; height: 8px; overflow: hidden; } .progress-bar-fg { background: var(--accent-color); height: 100%; width: 0; border-radius: 5px; transition: width 1.5s ease-out; }
         
-        .calculation-flow { margin: 2rem 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-        .calculation-step { display: flex; align-items: center; gap: 1rem; }
-        .calc-number { background: var(--card-bg-color); padding: 0.8rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 1.5rem; font-weight: 700; }
-        .calc-operator { font-size: 2rem; color: var(--accent-color); }
-        .calc-result { border-top: 2px solid var(--accent-color); padding-top: 1rem; }
+        .calculation-flow { margin: 2rem 0; display: flex; flex-direction: column; align-items: center; gap: 1rem; } .calculation-step { display: flex; align-items: center; gap: 1rem; } .calc-number { background: var(--card-bg-color); padding: 0.8rem 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 1.5rem; font-weight: 700; } .calc-operator { font-size: 2rem; color: var(--accent-color); } .calc-result { border-top: 2px solid var(--accent-color); padding-top: 1rem; }
         
-        /* Tipografia Fluida para o ROI */
-        .roi-display { font-size: clamp(4rem, 12vw, 6rem); font-weight: 800; color: var(--accent-color); text-shadow: 0 0 25px var(--accent-glow); margin: 1rem 0; }
-        .roi-label { font-size: 1.2rem; color: var(--text-muted-color); }
-        .conclusion-text { max-width: 800px; margin: 1rem auto; text-align: left; font-size: 1.1rem; line-height: 1.7; color: var(--text-muted-color); }
-        .conclusion-text strong { color: var(--accent-color); }
-        .footer-credit { margin-top: 3rem; font-size: 1rem; color: var(--text-muted-color); }
+        .roi-display { font-size: clamp(4rem, 12vw, 6rem); font-weight: 800; color: var(--accent-color); text-shadow: 0 0 25px var(--accent-glow); margin: 1rem 0; } .roi-label { font-size: 1.2rem; color: var(--text-muted-color); } .conclusion-text { max-width: 800px; margin: 1rem auto; text-align: left; font-size: 1.1rem; line-height: 1.7; color: var(--text-muted-color); } .conclusion-text strong { color: var(--accent-color); } .footer-credit { margin-top: 3rem; font-size: 1rem; color: var(--text-muted-color); }
+
+        /* ===== ESTILOS PARA SLIDES DE VENDA ===== */
+        .investment-breakdown { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; width: 100%; }
+        .investment-card { background: var(--card-bg-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); text-align: center; flex-grow: 1; min-width: 220px; transition: all 0.3s ease; }
+        .investment-label { color: var(--text-muted-color); font-size: 1rem; margin-bottom: 0.75rem; }
+        .investment-value { font-size: 2.2rem; font-weight: 800; color: var(--text-color); }
+        .investment-card.subsidy .investment-value { color: #50C878; }
+        .investment-card.final-cost { border-color: var(--accent-color); box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.05); }
+        .investment-card.final-cost .investment-value { color: var(--accent-color); }
+
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; width: 100%; max-width: 900px; }
+        .pricing-tier { background: var(--card-bg-color); padding: 2rem 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .pricing-tier:hover { transform: translateY(-5px); border-color: var(--border-hover-color); }
+        .pricing-tier h3 { font-size: 1.2rem; color: var(--text-color); margin-bottom: 1rem; }
+        .pricing-tier p { font-size: 2.5rem; font-weight: 800; color: var(--accent-color); }
+        .pricing-tier p span { font-size: 1rem; font-weight: 400; color: var(--text-muted-color); margin-left: 0.5rem; }
 
         /* ===== ANIMAÇÕES E NAVEGAÇÃO ===== */
-        .animated-item { opacity: 0; transition: all 0.5s ease-out; transform: translateY(20px); }
-        .slide.active .animated-item { opacity: 1; transform: translateY(0); }
-        .slide.active .item-2 { transition-delay: 0.1s; } .slide.active .item-3 { transition-delay: 0.2s; } .slide.active .item-4 { transition-delay: 0.3s; } .slide.active .item-5 { transition-delay: 0.4s; } .slide.active .item-6 { transition-delay: 0.5s; }
+        .animated-item { opacity: 0; transition: all 0.5s ease-out; transform: translateY(20px); } .slide.active .animated-item { opacity: 1; transform: translateY(0); } .slide.active .item-2 { transition-delay: 0.1s; } .slide.active .item-3 { transition-delay: 0.2s; } .slide.active .item-4 { transition-delay: 0.3s; } .slide.active .item-5 { transition-delay: 0.4s; } .slide.active .item-6 { transition-delay: 0.5s; }
         
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: none; z-index: 10; transition: all 0.3s ease; }
-        .nav-btn:hover { background-color: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 25px var(--accent-glow); }
-        .nav-btn.prev { left: 2rem; } .nav-btn.next { right: 2rem; }
-        .nav-btn.hidden { opacity: 0; pointer-events: none; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-color); width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: none; z-index: 10; transition: all 0.3s ease; } .nav-btn:hover { background-color: var(--accent-color); color: var(--bg-color); box-shadow: 0 0 25px var(--accent-glow); } .nav-btn.prev { left: 2rem; } .nav-btn.next { right: 2rem; } .nav-btn.hidden { opacity: 0; pointer-events: none; }
         
-        .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 100; background-color: var(--border-color); }
-        .progress-bar { width: 0; height: 100%; background-color: var(--accent-color); box-shadow: 0 0 10px var(--accent-glow); transition: width 0.6s cubic-bezier(0.76, 0, 0.24, 1); }
+        .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 100; background-color: var(--border-color); } .progress-bar { width: 0; height: 100%; background-color: var(--accent-color); box-shadow: 0 0 10px var(--accent-glow); transition: width 0.6s cubic-bezier(0.76, 0, 0.24, 1); }
         
-        .custom-cursor { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 2px solid var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-width 0.2s; z-index: 9999; }
-        .custom-cursor.hover { width: 50px; height: 50px; border-width: 3px; }
-        .custom-cursor.click { transform: translate(-50%, -50%) scale(0.8); }
-        .cursor-trail { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9998; transition: opacity 0.3s; }
+        .custom-cursor { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 2px solid var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, border-width 0.2s; z-index: 9999; } .custom-cursor.hover { width: 50px; height: 50px; border-width: 3px; } .custom-cursor.click { transform: translate(-50%, -50%) scale(0.8); } .cursor-trail { position: fixed; top: 0; left: 0; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9998; transition: opacity 0.3s; }
         
-        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s ease; }
-        .loading-screen.hidden { opacity: 0; visibility: hidden; }
-        .loader { width: 50px; height: 50px; border: 5px solid var(--border-color); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s ease; } .loading-screen.hidden { opacity: 0; visibility: hidden; } .loader { width: 50px; height: 50px; border: 5px solid var(--border-color); border-top-color: var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* ===== INÍCIO DAS REGRAS DE RESPONSIVIDADE ===== */
-
-        /* Para Tablets e Celulares Maiores (até 900px) */
+        /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 900px) {
-            .slide { padding: 1.5rem; }
-            .data-card-layout { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
-            .data-card-layout .slide-left { text-align: center; border-right: none; border-bottom: 2px solid var(--border-color); padding: 0 0 2rem 0; align-items: center; }
-            .data-card-layout .slide-right { text-align: center; }
-            
-            .performance-grid { grid-template-columns: 1fr; }
-            
-            .pie-chart { width: 200px; height: 200px; }
-
-            .nav-btn.prev { left: 1rem; } 
-            .nav-btn.next { right: 1rem; }
-
-            /* Ocultar efeitos que não funcionam ou prejudicam a performance em mobile */
-            .custom-cursor, .cursor-trail, .spotlight { display: none; }
-            html, body { cursor: auto; }
+            .slide { padding: 1.5rem; } .data-card-layout { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; } .data-card-layout .slide-left { text-align: center; border-right: none; border-bottom: 2px solid var(--border-color); padding: 0 0 2rem 0; align-items: center; } .data-card-layout .slide-right { text-align: center; } .performance-grid { grid-template-columns: 1fr; } .pie-chart { width: 200px; height: 200px; } .nav-btn.prev { left: 1rem; } .nav-btn.next { right: 1rem; } .custom-cursor, .cursor-trail, .spotlight { display: none; } html, body { cursor: auto; }
         }
 
-        /* Para Celulares (até 600px) */
         @media (max-width: 600px) {
-            .slide { padding: 1rem; }
-            .simple-card-layout, .data-card-layout { padding: 1rem; }
-            
-            .slide-icon { font-size: 3rem; }
-
-            /* Ajustar tamanho e posição dos botões de navegação */
-            .nav-btn { width: 40px; height: 40px; font-size: 1rem; }
-            .nav-btn.prev { left: 0.5rem; } 
-            .nav-btn.next { right: 0.5rem; }
-
-            .stat-label { font-size: 0.9rem; }
-            .stat-number { font-size: 2rem; }
-
-            /* Reorganizar o fluxo de cálculo para ser vertical */
-            .calculation-step { flex-direction: column; gap: 0.5rem; }
-            .calc-number { font-size: 1.2rem; padding: 0.5rem 1rem; }
-            .calc-operator { display: none; } /* Oculta o operador pois o layout vertical já implica a operação */
-            .calculation-flow .calc-result .calc-operator { display: inline; margin-right: 1rem; } /* Mostra o '=' no resultado */
-
-            /* Ajustar legenda do gráfico para melhor leitura */
-            .chart-legend li { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .legend-text strong { margin-left: 0; padding-left: 0; }
-            
-            .conclusion-text { font-size: 1rem; line-height: 1.6; }
-            
-            /* Ocultar meteoros de fundo em telas muito pequenas para focar no conteúdo */
-            .meteors-bg { display: none; }
+            .slide { padding: 1rem; } .simple-card-layout, .data-card-layout { padding: 1rem; } .slide-icon { font-size: 3rem; } .nav-btn { width: 40px; height: 40px; font-size: 1rem; } .nav-btn.prev { left: 0.5rem; } .nav-btn.next { right: 0.5rem; } .stat-label { font-size: 0.9rem; } .stat-number { font-size: 2rem; } .calculation-step { flex-direction: column; gap: 0.5rem; } .calc-number { font-size: 1.2rem; padding: 0.5rem 1rem; } .calc-operator { display: none; } .calculation-flow .calc-result .calc-operator { display: inline; margin-right: 1rem; } .chart-legend li { flex-direction: column; align-items: flex-start; gap: 0.5rem; } .legend-text strong { margin-left: 0; padding-left: 0; } .conclusion-text { font-size: 1rem; line-height: 1.6; } .meteors-bg { display: none; }
+            .pricing-tier p { font-size: 2rem; }
         }
     </style>
 </head>
@@ -219,14 +148,7 @@
     </div>
     
     <div class="meteors-bg">
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
-        <div class="meteor"></div>
+        <div class="meteor"></div><div class="meteor"></div><div class="meteor"></div><div class="meteor"></div><div class="meteor"></div><div class="meteor"></div><div class="meteor"></div><div class="meteor"></div>
     </div>
     
     <div class="grid-overlay"></div>
@@ -239,143 +161,78 @@
             
             <!-- SLIDE 1: RESUMO EXECUTIVO -->
             <section class="slide">
-                <div class="slide-content">
-                    <div class="simple-card-layout">
-                        <span class="slide-bg-number">01</span>
-                        <h1 class="slide-title animated-item" id="typewriter-title" data-text="Resumo De Junho"></h1>
-                        <div class="stats-container">
-                            <div class="stat-card animated-item item-2"><div class="stat-label">Total de Agendamentos</div><div class="stat-number" data-target="253" data-format="integer">0</div></div>
-                            <div class="stat-card animated-item item-3"><div class="stat-label">Receita Efetiva Gerada</div><div class="stat-number" data-target="16721.50" data-format="currency">R$ 0,00</div></div>
-                            <div class="stat-card animated-item item-4"><div class="stat-label">Retorno Sobre Investimento (ROI)</div><div class="stat-number" data-target="847.73" data-format="percent">0%</div></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">01</span><h1 class="slide-title animated-item" id="typewriter-title" data-text="Resumo de Junho - AllPé petrolina"></h1><div class="stats-container"><div class="stat-card animated-item item-2"><div class="stat-label">Total de Agendamentos</div><div class="stat-number" data-target="253" data-format="integer">0</div></div><div class="stat-card animated-item item-3"><div class="stat-label">Receita Efetiva Gerada</div><div class="stat-number" data-target="16721.50" data-format="currency">R$ 0,00</div></div><div class="stat-card animated-item item-4"><div class="stat-label">Retorno Sobre Investimento (ROI)</div><div class="stat-number" data-target="847.73" data-format="percent">0%</div></div></div></div></div>
             </section>
             
             <!-- SLIDE 2: CUSTOS (COM GRÁFICO DE PIZZA) -->
             <section class="slide">
-                <div class="slide-content data-card-layout">
-                    <div class="slide-left pie-chart-container">
-                        <span class="slide-bg-number">02</span>
-                        <div class="pie-chart animated-item item-2"></div>
-                    </div>
-                    <div class="slide-right"> 
-                        <i class="fa-solid fa-wallet slide-icon animated-item"></i>
-                        <h2 class="slide-title animated-item item-2">O Investimento</h2> 
-                        <ul class="chart-legend animated-item item-3">
-                            <li><span class="legend-key" style="background-color: var(--pie-color-1);"></span><span class="legend-text">Mensalidade (68.0%)<strong>R$ 1.200,00</strong></span></li>
-                            <li><span class="legend-key" style="background-color: var(--pie-color-2);"></span><span class="legend-text">Servidor (15.0%)<strong>R$ 263,97</strong></span></li>
-                            <li><span class="legend-key" style="background-color: var(--pie-color-3);"></span><span class="legend-text">Tokens (17.0%)<strong>R$ 300,41</strong></span></li>
-                        </ul>
-                        <p class="animated-item item-4" style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 1rem; font-size: 1.2rem;">Custo Total: <strong style="color: var(--accent-color);">R$ 1.764,38</strong></p>
-                    </div>
-                </div>
+                <div class="slide-content data-card-layout"><div class="slide-left pie-chart-container"><span class="slide-bg-number">02</span><div class="pie-chart animated-item item-2"></div></div><div class="slide-right"> <i class="fa-solid fa-wallet slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">O Investimento</h2> <ul class="chart-legend animated-item item-3"><li><span class="legend-key" style="background-color: var(--pie-color-1);"></span><span class="legend-text">Mensalidade (68.0%)<strong>R$ 1.200,00</strong></span></li><li><span class="legend-key" style="background-color: var(--pie-color-2);"></span><span class="legend-text">Servidor (15.0%)<strong>R$ 263,97</strong></span></li><li><span class="legend-key" style="background-color: var(--pie-color-3);"></span><span class="legend-text">Tokens (17.0%)<strong>R$ 300,41</strong></span></li></ul><p class="animated-item item-4" style="border-top: 1px solid var(--border-color); padding-top: 1rem; margin-top: 1rem; font-size: 1.2rem;">Custo Total: <strong style="color: var(--accent-color);">R$ 1.764,38</strong></p></div></div>
             </section>
 
             <!-- SLIDE 3: DESEMPENHO OPERACIONAL -->
             <section class="slide">
-                <div class="slide-content data-card-layout">
-                    <div class="slide-left">
-                        <span class="slide-bg-number">03</span>
-                        <i class="fa-solid fa-chart-line slide-icon animated-item"></i> 
-                        <h2 class="slide-title animated-item item-2">Desempenho Operacional</h2>
-                    </div>
-                    <div class="slide-right performance-grid">
-                        <div class="performance-list animated-item item-3">
-                            <h3>Agendamentos por Horário</h3>
-                            <div class="performance-item"><div class="performance-label"><span>Durante Expediente</span><span>163 (64.4%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="64.4"></div></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Fora do Expediente</span><span>86 (34.0%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="34.0"></div></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Madrugada</span><span>4 (1.6%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="1.6"></div></div></div>
-                        </div>
-                        <div class="performance-list animated-item item-4">
-                            <h3>Status dos Agendamentos</h3>
-                            <div class="performance-item"><div class="performance-label"><span>Finalizado</span><span>182</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Cancelado</span><span>47</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Não Compareceu</span><span>23</span></div></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="slide-content data-card-layout"><div class="slide-left"><span class="slide-bg-number">03</span><i class="fa-solid fa-chart-line slide-icon animated-item"></i> <h2 class="slide-title animated-item item-2">Desempenho Operacional</h2></div><div class="slide-right performance-grid"><div class="performance-list animated-item item-3"><h3>Agendamentos por Horário</h3><div class="performance-item"><div class="performance-label"><span>Durante Expediente</span><span>163 (64.4%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="64.4"></div></div></div><div class="performance-item"><div class="performance-label"><span>Fora do Expediente</span><span>86 (34.0%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="34.0"></div></div></div><div class="performance-item"><div class="performance-label"><span>Madrugada</span><span>4 (1.6%)</span></div><div class="progress-bar-bg"><div class="progress-bar-fg" data-width="1.6"></div></div></div></div><div class="performance-list animated-item item-4"><h3>Status dos Agendamentos</h3><div class="performance-item"><div class="performance-label"><span>Finalizado</span><span>182</span></div></div><div class="performance-item"><div class="performance-label"><span>Cancelado</span><span>47</span></div></div><div class="performance-item"><div class="performance-label"><span>Não Compareceu</span><span>23</span></div></div></div></div></div>
             </section>
 
             <!-- SLIDE 4: DISTRIBUIÇÃO E DEMANDA -->
             <section class="slide">
-                 <div class="slide-content data-card-layout">
-                    <div class="slide-left">
-                        <span class="slide-bg-number">04</span>
-                        <i class="fa-solid fa-users slide-icon animated-item"></i> 
-                        <h2 class="slide-title animated-item item-2">Distribuição e Demanda</h2>
-                    </div>
-                    <div class="slide-right performance-grid">
-                        <div class="performance-list animated-item item-3">
-                            <h3>Por Profissional</h3>
-                            <div class="performance-item"><div class="performance-label"><span>Angélica</span><span>99</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Fabiana</span><span>82</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Maria</span><span>72</span></div></div>
-                        </div>
-                        <div class="performance-list animated-item item-4">
-                            <h3>Serviços Mais Agendados</h3>
-                            <div class="performance-item"><div class="performance-label"><span>Podologia All Pe</span><span>167 (66%)</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Onicocriptose Unilateral</span><span>41 (16.2%)</span></div></div>
-                            <div class="performance-item"><div class="performance-label"><span>Avaliação Gratuita</span><span>24 (9.5%)</span></div></div>
-                        </div>
-                    </div>
-                 </div>
+                 <div class="slide-content data-card-layout"><div class="slide-left"><span class="slide-bg-number">04</span><i class="fa-solid fa-users slide-icon animated-item"></i> <h2 class="slide-title animated-item item-2">Distribuição e Demanda</h2></div><div class="slide-right performance-grid"><div class="performance-list animated-item item-3"><h3>Por Profissional</h3><div class="performance-item"><div class="performance-label"><span>Angélica</span><span>99</span></div></div><div class="performance-item"><div class="performance-label"><span>Fabiana</span><span>82</span></div></div><div class="performance-item"><div class="performance-label"><span>Maria</span><span>72</span></div></div></div><div class="performance-list animated-item item-4"><h3>Serviços Mais Agendados</h3><div class="performance-item"><div class="performance-label"><span>Podologia All Pe</span><span>167 (66%)</span></div></div><div class="performance-item"><div class="performance-label"><span>Onicocriptose Unilateral</span><span>41 (16.2%)</span></div></div><div class="performance-item"><div class="performance-label"><span>Avaliação Gratuita</span><span>24 (9.5%)</span></div></div></div></div></div>
             </section>
 
             <!-- SLIDE 5: ANÁLISE FINANCEIRA -->
             <section class="slide">
-                <div class="slide-content">
-                    <div class="simple-card-layout">
-                        <span class="slide-bg-number">05</span>
-                        <h2 class="slide-title animated-item">Análise Financeira</h2>
-                        <div class="calculation-flow">
-                            <div class="calculation-step animated-item item-2"><div class="calc-number">R$ 23.728,50</div> <span>(Total Bruto Agendado)</span></div>
-                            <div class="calculation-step animated-item item-3"><div class="calc-operator">-</div> <div class="calc-number">R$ 4.716,00</div> <span>(Cancelados)</span></div>
-                            <div class="calculation-step animated-item item-4"><div class="calc-operator">-</div> <div class="calc-number">R$ 2.291,00</div> <span>(Não Compareceu)</span></div>
-                            <div class="calculation-step calc-result animated-item item-5"><div class="calc-operator">=</div> <div class="calc-number" style="border-color: var(--accent-color);">R$ 16.721,50</div> <span>(Receita Efetiva)</span></div>
-                        </div>
-                         <p class="animated-item item-6" style="margin-top: 1.5rem; color: var(--text-muted-color);">Receita Fora do Expediente: <strong style="color: var(--accent-color);">R$ 7.226,20</strong>*<br><small>*Receita que poderia ter sido perdida sem o atendimento 24/7.</small></p>
-                    </div>
-                </div>
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">05</span><h2 class="slide-title animated-item">Análise Financeira</h2><div class="calculation-flow"><div class="calculation-step animated-item item-2"><div class="calc-number">R$ 23.728,50</div> <span>(Total Bruto Agendado)</span></div><div class="calculation-step animated-item item-3"><div class="calc-operator">-</div> <div class="calc-number">R$ 4.716,00</div> <span>(Cancelados)</span></div><div class="calculation-step animated-item item-4"><div class="calc-operator">-</div> <div class="calc-number">R$ 2.291,00</div> <span>(Não Compareceu)</span></div><div class="calculation-step calc-result animated-item item-5"><div class="calc-operator">=</div> <div class="calc-number" style="border-color: var(--accent-color);">R$ 16.721,50</div> <span>(Receita Efetiva)</span></div></div><p class="animated-item item-6" style="margin-top: 1.5rem; color: var(--text-muted-color);">Receita Fora do Expediente: <strong style="color: var(--accent-color);">R$ 7.226,20</strong>*<br><small>*Receita que poderia ter sido perdida sem o atendimento 24/7.</small></p></div></div>
             </section>
             
             <!-- SLIDE 6: ROI -->
              <section class="slide">
-                <div class="slide-content">
-                    <div class="simple-card-layout">
-                        <span class="slide-bg-number">06</span>
-                        <i class="fa-solid fa-arrow-trend-up slide-icon animated-item"></i>
-                        <h2 class="slide-title animated-item item-2">Retorno Sobre Investimento</h2>
-                        <div class="roi-display animated-item item-3" data-target="847.73" data-format="percent">0%</div>
-                        <div class="roi-label animated-item item-4">Retorno Excepcional</div>
-                        <p class="animated-item item-5" style="color: var(--text-muted-color); margin-top: 1rem; max-width: 90%;">(Receita Líquida <strong style="color:var(--text-color)">R$ 14.957,12</strong> / Custo Total <strong style="color:var(--text-color)">R$ 1.764,38</strong>) * 100</p>
-                    </div>
-                </div>
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">06</span><i class="fa-solid fa-arrow-trend-up slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">ROI (Bruto)</h2><div class="roi-display animated-item item-3" data-target="847.73" data-format="percent">0%</div><div class="roi-label animated-item item-4">Retorno</div><p class="animated-item item-5" style="color: var(--text-muted-color); margin-top: 1rem; max-width: 90%;">(Receita Líquida <strong style="color:var(--text-color)">R$ 14.957,12</strong> / Custo Total <strong style="color:var(--text-color)">R$ 1.764,38</strong>) * 100</p></div></div>
             </section>
 
             <!-- SLIDE 7: CONCLUSÃO E POTENCIAL -->
             <section class="slide">
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">07</span><i class="fa-solid fa-lightbulb slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">Conclusão e Potencial</h2><div class="conclusion-text animated-item item-3"><p>Para cada <strong>R$ 1,00</strong> investido na Pérola, a clínica teve um retorno de <strong>R$ 8,47</strong>. Este resultado comprova que a agente virtual não é apenas uma ferramenta de automação, mas um <strong>poderoso centro de lucro</strong>.</p><h3 style="margin-top: 2rem; color: var(--text-color);">Potencial Não Mensurado</h3><p>Os números, embora impressionantes, são conservadores. O impacto real é ainda maior, considerando conversões de avaliações, vendas por sugestão, reagendamentos e outros fatores não rastreados.</p></div></div></div>
+            </section>
+
+            <!-- SLIDE 8: TRANSIÇÃO PARA A PROPOSTA -->
+            <section class="slide">
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">08</span><i class="fa-solid fa-wand-magic-sparkles slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">A Proposta para o Futuro</h2><p class="conclusion-text animated-item item-3" style="text-align: center;">Os resultados falam por si. Agora, veja como é simples continuar essa jornada de crescimento.</p></div></div>
+            </section>
+
+            <!-- SLIDE 9: INVESTIMENTO INICIAL -->
+            <section class="slide">
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">09</span><i class="fa-solid fa-rocket slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">Investimento de Implementação</h2><div class="investment-breakdown"><div class="investment-card animated-item item-3"><div class="investment-label">Valor Total do Projeto</div><div class="investment-value" style="text-decoration: line-through;">R$ 15.000,00</div></div><div class="investment-card subsidy animated-item item-4"><div class="investment-label">Subsídio Sebrae <i class="fa-solid fa-gift"></i></div><div class="investment-value">- R$ 9.000,00</div></div><div class="investment-card final-cost animated-item item-5"><div class="investment-label">Investimento Final (por loja)</div><div class="investment-value">R$ 6.000,00</div></div></div><p class="animated-item item-6" style="margin-top: 2rem; color: var(--text-muted-color);">Taxa única para implementação, treinamento e lançamento.</p></div></div>
+            </section>
+
+            <!-- SLIDE 10: MENSALIDADE -->
+            <section class="slide">
+                <div class="slide-content"><div class="simple-card-layout"><span class="slide-bg-number">10</span><i class="fa-solid fa-layer-group slide-icon animated-item"></i><h2 class="slide-title animated-item item-2">Mensalidade Flexível</h2><p class="animated-item item-3" style="color: var(--text-muted-color); margin-bottom: 2rem;">Pague apenas pela sua capacidade. Preço por profissional/cabine ativa.</p><div class="pricing-grid"><div class="pricing-tier animated-item item-3"><h3>Até 3 Cabines</h3><p>R$ 400<span>/cabine</span></p></div><div class="pricing-tier animated-item item-4"><h3>Até 6 Cabines</h3><p>R$ 300<span>/cabine</span></p></div><div class="pricing-tier animated-item item-5"><h3>Até 9 Cabines</h3><p>R$ 250<span>/cabine</span></p></div><div class="pricing-tier animated-item item-6"><h3>Até 12 Cabines</h3><p>R$ 200<span>/cabine</span></p></div></div></div></div>
+            </section>
+
+            <!-- NOVO SLIDE 11: CUSTO DE TOKENS E EVOLUÇÃO -->
+            <section class="slide">
                 <div class="slide-content">
                     <div class="simple-card-layout">
-                        <span class="slide-bg-number">07</span>
-                        <i class="fa-solid fa-lightbulb slide-icon animated-item"></i>
-                        <h2 class="slide-title animated-item item-2">Conclusão e Potencial</h2>
+                        <span class="slide-bg-number">11</span>
+                        <i class="fa-solid fa-infinity slide-icon animated-item"></i>
+                        <h2 class="slide-title animated-item item-2">Custos Dinâmicos e Evolução Contínua</h2>
                         <div class="conclusion-text animated-item item-3">
-                            <p>Para cada <strong>R$ 1,00</strong> investido na Pérola, a clínica teve um retorno de <strong>R$ 8,47</strong>. Este resultado comprova que a agente virtual não é apenas uma ferramenta de automação, mas um <strong>poderoso centro de lucro</strong>.</p>
-                            <h3 style="margin-top: 2rem; color: var(--text-color);">Potencial Não Mensurado</h3>
-                            <p>Os números, embora impressionantes, são conservadores. O impacto real é ainda maior, considerando conversões de avaliações, vendas por sugestão, reagendamentos e outros fatores não rastreados que subestimam o valor gerado.</p>
+                            <p>O <strong>custo de tokens</strong>, associado ao volume de mensagens, é uma despesa variável. No entanto, a tendência histórica e de mercado é que este custo <strong>diminua com o tempo</strong>. Isso ocorre por dois motivos principais: nossas <strong>otimizações internas</strong> constantes e a própria evolução do mercado — com a chegada do <strong>GPT-5</strong>, por exemplo, a expectativa é de uma redução nos custos da tecnologia atual.</p>
+                            <h3 style="margin-top: 2rem; color: var(--text-color);">Evolução Constante</h3>
+                            <p>A Pérola não é um produto estático. Ela está em <strong>constante evolução</strong>. Diariamente, nossa equipe coleta feedbacks, realiza ajustes e implementa novas funcionalidades para garantir que você tenha sempre a ferramenta mais eficiente e poderosa à sua disposição.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 8: FINAL -->
+            <!-- SLIDE 12: FINAL -->
             <section class="slide final-slide">
                 <div class="slide-content">
                     <div class="shooting-star"></div>
                     <div class="simple-card-layout">
+                        <span class="slide-bg-number">12</span>
                         <i class="fa-solid fa-handshake slide-icon animated-item" style="font-size: 6rem;"></i>
-                        <h2 class="slide-title animated-item item-2">Relatório de Performance</h2>
+                        <h2 class="slide-title animated-item item-2">Vamos Crescer Juntos?</h2>
                         <div class="footer-credit animated-item item-3">Midas Start Marketing Digital LTDA.</div>
                     </div>
                 </div>
@@ -440,14 +297,13 @@
                 }, 500);
             });
 
-            const cursor = document.querySelector('.custom-cursor');
-            const trails = document.querySelectorAll('.cursor-trail');
-            const spotlight = document.querySelector('.spotlight');
-            const gridOverlay = document.querySelector('.grid-overlay');
-            const trailPoints = Array.from({ length: trails.length }, () => ({ x: 0, y: 0 }));
-            let mouseX = 0, mouseY = 0;
-
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                const cursor = document.querySelector('.custom-cursor');
+                const trails = document.querySelectorAll('.cursor-trail');
+                const spotlight = document.querySelector('.spotlight');
+                const gridOverlay = document.querySelector('.grid-overlay');
+                const trailPoints = Array.from({ length: trails.length }, () => ({ x: 0, y: 0 }));
+                let mouseX = 0, mouseY = 0;
                 window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
                 function renderMouseEffects() {
                     cursor.style.transform = `translate(${mouseX - cursor.offsetWidth / 2}px, ${mouseY - cursor.offsetHeight / 2}px)`;
